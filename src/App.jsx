@@ -1,7 +1,7 @@
 import './App.css'
-import MyHeader from './assets/MyHeader'
-import MyMain from './assets/MyMain'
-import MyFooter from './assets/MyFooter'
+import MyHeader from './MyHeader'
+import MyMain from './MyMain'
+import MyFooter from './MyFooter'
 
 function App() {
 
