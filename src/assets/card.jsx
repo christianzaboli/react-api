@@ -13,7 +13,9 @@ function card(props) {
                         <p className="card-text">{props.biography}</p>
                         <p className="card-text">Awards: {Array.isArray(props.awards) ? props.awards.join(", ") : props.awards}</p>
                         <p className="card-text">Starred in: <br />
-                            {Array.isArray(props.known_for) ? props.known_for.join(", ") : props.known_for}</p>
+                            {Array.isArray(props.known_for) ? props.known_for.join(", ") : props.known_for}
+                            {Array.isArray(props.most_famous_movies) ? props.most_famous_movies.join(", ") : props.most_famous_movies}
+                        </p>
                         {/* <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p> */}
                     </div>
                 </div>
