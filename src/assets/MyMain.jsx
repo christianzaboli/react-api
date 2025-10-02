@@ -1,25 +1,35 @@
 import { useState, useEffect } from "react";
 
 function MyMain() {
-    const [attori, setAttori] = useState([])
-    const [attrici, setAttrici] = useState([])
+    const [actors, setActors] = useState([])
+    const [actress, setActress] = useState([])
+    const [allActors, setAllActors] = useState([])
 
-    function fetchAttori() {
+    function fetchactors() {
         axios.get('https://lanciweb.github.io/demo/api/actors/')
-            .then((res) => console.log(res.data))
+            .then((res) => setActors(res.data))
     }
-    function fetchAttrici() {
+    function fetchactress() {
         axios.get('https://lanciweb.github.io/demo/api/actresses/')
-            .then((res) => console.log(res.data))
+            .then((res) => setActress(res.data))
     }
 
-    useEffect(fetchAttori, []);
-    useEffect(fetchAttrici, []);
-    // console.log(attori, attrici);
+    useEffect(fetchactors, []);
+    useEffect(fetchactress, []);
+    // console.log(actors, actress);
 
     return (
         <main>
-
+            {actors.map(a => (
+                <div key={a.id} className="card">
+                    <h2 className="actor-name">{a.name}</h2>
+                    <img src={a.image} alt={a.name} className="actor-pic" />
+                    <p className="birthyear">{a.birth_year}</p>
+                    <p className="nationality">{a.nationality}</p>
+                    <p className="bio">{a.biography}</p>
+                    <p className="awards">{a.awards}</p>
+                </div>
+            ))}
         </main>
     )
 }
