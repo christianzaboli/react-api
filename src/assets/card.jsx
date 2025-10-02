@@ -1,17 +1,23 @@
 function card(props) {
 
     return (
-        < div key={props.id} className="card" >
-            <h2 className="actor-name">{props.name}</h2>
-            <img src={props.image} alt={props.name} className="actor-pic" />
-            <p className="birthyear">born in {props.birth_year}, <span>{props.nationality}</span> </p>
-            <p className="bio">{props.biography}</p>
+        <div key={props.id} className="card mt-4">
+            <div className="row g-0">
 
-            {/* meteodo array.isarray necessario per outsmartare axios */}
-            <p className="awards">Awards: <br />{Array.isArray(props.awards) ? props.awards.join(", ") : props.awards}</p>
-            <p className="films">
-                Starred in: <br /><em>{Array.isArray(props.known_for) ? props.known_for.join(", ") : props.known_for}</em>
-            </p>
+                <img src={props.image} alt={props.name} className="actor-pic col-md-4" />
+
+                <div className="col-md-8">
+                    <div className="card-body">
+                        <h5 className="card-title">{props.name}</h5>
+                        <p className="card-text">born in {props.birth_year}, <span>{props.nationality}</span> </p>
+                        <p className="card-text">{props.biography}</p>
+                        <p className="card-text">Awards: {Array.isArray(props.awards) ? props.awards.join(", ") : props.awards}</p>
+                        <p className="card-text">Starred in: <br />
+                            {Array.isArray(props.known_for) ? props.known_for.join(", ") : props.known_for}</p>
+                        {/* <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p> */}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

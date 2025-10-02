@@ -21,9 +21,11 @@ function MyMain() {
     return (
         <main>
             <section className="container">
+                <div className="">
 
-                {actors.map(a => card(a))}
-                {actress.map(a => card(a))}
+                    {actors.map(a => card(a))}
+                    {actress.map(a => card(a))}
+                </div>
             </section>
 
         </main>
